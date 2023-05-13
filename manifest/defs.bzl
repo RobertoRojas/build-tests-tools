@@ -2,7 +2,7 @@ def _generate_manifest(ctx):
     output_name = ctx.attr.manifest_name if ctx.attr.manifest_name else ctx.label.name
     output = ctx.actions.declare_file(output_name)
     args = ctx.actions.args()
-    args.add_all(["--type", ctx.attr.type, "--output", "{}/{}".format(ctx.bin_dir.path, output_name)])
+    args.add_all(["--type", ctx.attr.type, "--output", output.path])
     for f in ctx.attr.srcs:
         args.add_all(["--files", f.files.to_list()[0]])
     ctx.actions.run(
