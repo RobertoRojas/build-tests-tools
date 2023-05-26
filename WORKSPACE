@@ -40,3 +40,7 @@ pip_parse(
 load("@pip//:requirements.bzl", "install_deps")
 
 install_deps()
+
+load("//:deps.bzl", "download_test_dependency")
+
+download_test_dependency()
